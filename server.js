@@ -9,6 +9,13 @@ app.use(express.json());
 app.use(express.static('public'));
 app.use('/uploads', express.static('uploads'));
 
+// 
+const mongoURI = process.env.MONGODB_URI || 'mongodb://localhost:27017/resende_mori';
+
+mongoose.connect(mongoURI)
+    .then(() => console.log("Conectado ao MongoDB!"))
+    .catch(err => console.error("Erro ao conectar:", err));
+
 //configuração do MongoDB
 mongoose.connect('mongodb://localhost:27017/resende_mori'); //substitua pelo seu URI do MongoDB caso queira usar!
 
@@ -73,3 +80,9 @@ app.post('/documentos/:id/comentar', async (req, res) => {
 });
 
 app.listen(3000, () => console.log('Servidor rodando em http://localhost:3000'));
+
+// No final do arquivo, onde você dá o app.listen:
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Servidor rodando na porta ${PORT}`);
+});
