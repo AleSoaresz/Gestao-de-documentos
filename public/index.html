@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arquivos RESENDE MORI</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <header>
+        <h1>Arquivos RESENDE MORI</h1>
+    </header>
+
+    <main>
+        <section id="upload-section">
+            <h3>INSERÇÃO DE DOCUMENTOS</h3>
+            <form id="uploadForm">
+                <input type="text" id="titulo" placeholder="Título do Documento" required>
+                <textarea id="descricao" placeholder="Comentário"></textarea>
+                <input type="file" id="arquivo" accept=".pdf,.jpg,.jpeg,.png" required>
+                <button type="submit">Enviar</button>
+            </form>
+        </section>
+
+        <section id="lista-documentos"></section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
