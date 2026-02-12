@@ -16,9 +16,6 @@ mongoose.connect(mongoURI)
     .then(() => console.log("Conectado ao MongoDB!"))
     .catch(err => console.error("Erro ao conectar:", err));
 
-//configuração do MongoDB
-mongoose.connect('mongodb://localhost:27017/resende_mori'); //substitua pelo seu URI do MongoDB caso queira usar!
-
 const DocumentoSchema = new mongoose.Schema({
     titulo: String,
     descricao: String,
