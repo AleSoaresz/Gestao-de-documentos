@@ -1,11 +1,10 @@
 const detalheContainer = document.getElementById('detalhe-documento');
 
 async function carregarDetalhes() {
-    // 1. Pega o ID que passamos pela URL
     const params = new URLSearchParams(window.location.search);
     const id = params.get('id');
 
-    // 2. Busca os dados no servidor
+    // busca os dados no servidor
     const res = await fetch('/documentos');
     const docs = await res.json();
     const doc = docs.find(d => d._id === id);
@@ -15,7 +14,7 @@ async function carregarDetalhes() {
         return;
     }
 
-    // 3. Define se é PDF ou Imagem
+    // define se é PDF ou imagem para mostrar o preview
     const arquivoUrl = `/uploads/${doc.nomeArquivo}`;
     const extensao = doc.nomeArquivo.split('.').pop().toLowerCase();
     let previewHTML = '';
@@ -26,7 +25,7 @@ async function carregarDetalhes() {
         previewHTML = `<img src="${arquivoUrl}" style="max-width:100%; border-radius:8px; border:1px solid #e2e8f0;">`;
     }
 
-    // 4. Monta a tela
+    // montagem da tela de detalhes do documento
     detalheContainer.innerHTML = `
         <div class="card">
             <h2> ${doc.titulo}</h2>
@@ -70,7 +69,7 @@ async function comentar(id) {
     });
 
     if (res.ok) {
-        carregarDetalhes(); // Recarrega para mostrar o novo comentário
+        carregarDetalhes(); // recarrega para mostrar o novo comentário
     }
 }
 

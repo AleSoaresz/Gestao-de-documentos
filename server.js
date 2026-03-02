@@ -78,7 +78,7 @@ app.post('/documentos/:id/comentar', async (req, res) => {
 
 app.listen(3000, () => console.log('Servidor rodando em http://localhost:3000'));
 
-// No final do arquivo, onde você dá o app.listen:
+//parte do deploy no Render
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Servidor rodando na porta ${PORT}`);
